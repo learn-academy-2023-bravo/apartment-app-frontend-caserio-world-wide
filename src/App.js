@@ -10,7 +10,6 @@ import ApartmentEdit from "./pages/ApartmentEdit";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import SignIn from "./pages/SignIn";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login"
 import './App.css'
@@ -19,7 +18,7 @@ import './App.css'
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(mockUser[0])
-  const [currentApartment, setCurrentApartment] = useState(mockApartment[0])
+  const [apartments, setApartments] = useState(mockApartment)
 
   return (
     <>
@@ -29,7 +28,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/apartmentindex" element={<ApartmentIndex />} />
+          <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments}/>}/>
           <Route path="/apartmentshow/:id" element={<ApartmentShow />} />
           <Route path="/apartmentnew" element={<ApartmentNew/>} />
           <Route path="/apartmentedit/:id" element={<ApartmentEdit/>} />
@@ -39,7 +38,6 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
-   
     </>
   )
 }

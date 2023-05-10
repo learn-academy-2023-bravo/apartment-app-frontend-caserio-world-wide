@@ -1,5 +1,8 @@
 
 const Login = () => {
+    const handleSubmit = () => {
+        console.log("yes")
+    }
     return(
         <div> 
             <form onSubmit={handleSubmit}>
