@@ -1,8 +1,10 @@
+import Navigation from "./Navigation"
 
-
-const Header = () => {
+const Header = ({ current_user}) => {
     return(
-<h1>This is our header</h1>
+    <>
+        <Navigation current_user={current_user} />
+    </>
     )
 }
 
