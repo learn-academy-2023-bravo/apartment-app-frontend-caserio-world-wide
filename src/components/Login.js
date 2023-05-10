@@ -1,7 +1,6 @@
 
 const Login = () => {
     const handleSubmit = () => {
-        console.log('something')
     }
     return(
         <div> 
