@@ -1,7 +1,5 @@
 
 const Login = () => {
-    const handleSubmit = () => {
-    }
     return(
         <div> 
             <form onSubmit={handleSubmit}>
