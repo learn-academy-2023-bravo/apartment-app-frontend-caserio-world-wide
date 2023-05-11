@@ -45,6 +45,17 @@ const ApartmentNew = ({createApartment}) => {
                     />
                 </FormGroup>
                 <FormGroup>
+                    <Label for="apartment-street">Street</Label>
+                    <Input
+                    id="apartment-street"
+                    name="street"
+                    placeholder="Enter Street"
+                    type="text"
+                    onChange={handleChange}
+                    value={newApartment.street}
+                    />
+                </FormGroup>
+                <FormGroup>
                     <Label for="apartment-unit">Unit</Label>
                     <Input
                     id="apartment-unit"

@@ -10,9 +10,9 @@ const Navigation = ({ current_user }) => {
             <Nav className="nav">
                 {current_user && (
                     <>
-                        <NavLink to = '/apartmentindex'> 
+                        {/* <NavLink to = '/apartmentindex'> 
                                 <img src={ CWWlogo } alt='Caserio World Wide Logo' className='Logo'/>
-                        </NavLink>
+                        </NavLink> */}
                         <NavItem>
                             <NavLink to="/apartmentprotectedindex" className="nav-link">
                                 My Listings
@@ -33,7 +33,7 @@ const Navigation = ({ current_user }) => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="login" className="nav-link">
+                            <NavLink to="/login" className="nav-link">
                                 Login
                             </NavLink>
                         </NavItem>

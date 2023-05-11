@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Header from "./components/Header"
@@ -17,9 +17,57 @@ import ApartmentProtectedIndex from './pages/ApartmentProtectedindex'
 
 
 const App = () => {
-  const [currentUser] = useState(mockUsers[0])
-  const [apartments] = useState(mockApartments)
+  const [currentUser] = useState(mockUsers)
+  const [apartments, setApartments] = useState(mockApartments)
+  
+  useEffect(() => {
+    readApartment()
+  }, [])
 
+  const readApartment=() => {
+    fetch('http://localhost:3000/apartments')
+    .then(response => response.json())
+    .then(payload => {
+      setApartments(payload)
+    })
+    .catch(error => console.log("Apartment read errors", error))
+  }
+
+  const createApartment = (createdApartment) => {
+    fetch('http://localhost:3000/apartments', {
+      body: JSON.stringify(createdApartment),
+      headers : {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then(response => response.json())
+      .then(() => readApartment())
+      .catch(error => console.log("Create apartment errors:", error))
+  }
+  const updateApartment = (selectedApartment, id) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      body: JSON.stringify(selectedApartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(() => readApartment())
+    .catch(error => console.log("Updated apartment errors:", error))
+  }
+  const deleteApartment = (id) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(() => readApartment())
+    .catch(error => console.log("Delete errors:", error))
+  }
   return (
     <>
       <Header current_user={currentUser}/>
@@ -31,7 +79,7 @@ const App = () => {
         <Route path='/Login' element={<Login />} />
         <Route path='/apartmentprotectedindex' element={<ApartmentProtectedIndex apartments={apartments} current_user={currentUser}/>} />
         <Route path='/apartmentnew' element={<ApartmentNew />} />
-        <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} // updateApartment={updateApartment} deleteApartment={deleteApartment} //
+        <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} updateApartment={updateApartment} deleteApartment={deleteApartment} 
         />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

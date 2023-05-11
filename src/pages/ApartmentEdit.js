@@ -54,6 +54,17 @@ const ApartmentEdit = ({ updateApartment, deleteApartment, apartments }) => {
                             />
                         </FormGroup>
                         <FormGroup>
+                            <Label for="apartment-street">Street</Label>
+                            <Input
+                            id="apartment-street"
+                            name="street"
+                            placeholder="Enter Street"
+                            type="text"
+                            onChange={handleChange}
+                            value={updatedApartment.street}
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label for="apartment-unit">Unit</Label>
                             <Input
                             id="apartment-unit"
@@ -139,7 +150,9 @@ const ApartmentEdit = ({ updateApartment, deleteApartment, apartments }) => {
                             value={updatedApartment.image}
                         />
                         </FormGroup>
-                        <Button type='submit' color='primary'>Submit</Button>
+                        
+                        <Button type='submit' color='primary' onClick={handleSubmit
+                        }>Submit</Button>
                         <Button onClick={handleDelete} color='danger'>Delete</Button>
                     </Form>
                 </CardBody>
