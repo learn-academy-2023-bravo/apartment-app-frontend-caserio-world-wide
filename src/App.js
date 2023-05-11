@@ -78,7 +78,7 @@ const App = () => {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/apartmentprotectedindex' element={<ApartmentProtectedIndex apartments={apartments} current_user={currentUser}/>} />
-        <Route path='/apartmentnew' element={<ApartmentNew />} />
+        <Route path='/apartmentnew' element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} updateApartment={updateApartment} deleteApartment={deleteApartment} 
         />} />
         <Route path='*' element={<NotFound />} />
