@@ -131,7 +131,7 @@ const ApartmentEdit = ({ updateApartment, deleteApartment, apartments }) => {
                             />
                         </FormGroup>
                         <FormGroup>
-                        <Label for='apartment-pets'>Enjoys</Label>
+                        <Label for='apartment-pets'>Pets</Label>
                         <Input
                             type='text'
                             name='pets'
