@@ -11,37 +11,33 @@ import Footer from "./components/Footer"
 import Login from "./components/Login"
 import SignUp from "./components/SignUp"
 import './App.css'
-import mockApartment from "./mockApartments"
-import mockUser from "./mockUsers"
+import mockApartments from "./mockApartments"
+import mockUsers from "./mockUsers"
 import ApartmentProtectedIndex from './pages/ApartmentProtectedindex'
 
 
 const App = () => {
-  const [currentUser] = useState(mockUser[0])
-  const [apartments] = useState(mockApartment)
-
+  const [currentUser] = useState(mockUsers[0])
+  const [apartments] = useState(mockApartments)
 
   return (
-
     <>
-    
-    <Header current_user={currentUser}/>
-    <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/apartmentedit/:id' element={<ApartmentEdit />} />
-    <Route path='/Login' element={<Login />} />
-    <Route path='/signup' element={<SignUp />} />
-    <Route path='/apartmentindex' element={<ApartmentIndex apartments={apartments}/>} />
-    <Route path='/apartmentshow/:id' element={<ApartmentShow apartments={apartments}/>} />
-    <Route path='/apartmentprotectedindex' element={<ApartmentProtectedIndex apartments={apartments} current_user={currentUser}/>} />
-    <Route path='/apartmentnew' element={<ApartmentNew />} />
-    <Route path='*' element={<NotFound />} />
-    </Routes>
-    <Footer />
-    
+      <Header current_user={currentUser}/>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/apartmentindex' element={<ApartmentIndex apartments={apartments}/>} />
+        <Route path='/apartmentshow/:id' element={<ApartmentShow apartments={apartments}/>} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/apartmentprotectedindex' element={<ApartmentProtectedIndex apartments={apartments} current_user={currentUser}/>} />
+        <Route path='/apartmentnew' element={<ApartmentNew />} />
+        <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} // updateApartment={updateApartment} deleteApartment={deleteApartment} //
+        />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <Footer />
     </>
-    
-  );
+  )
 }
 
 export default App

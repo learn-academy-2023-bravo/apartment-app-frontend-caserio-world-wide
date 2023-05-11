@@ -28,7 +28,12 @@ const ApartmentProtectedIndex = ({ apartments, current_user }) => {
                                 >
                                     <Button className="apartment-button">More Details</Button>
                                 </NavLink>
-                            <Button className="apartment-button">Update</Button>
+                                <NavLink
+                                    to={`/apartmentedit/${apartment.id}`}
+                                    className="nav-link"
+                                >
+                                    <Button className="apartment-button">Update Listing</Button>
+                                </NavLink>
                             <Button className="apartment-button">Delete</Button>
                             </CardBody>
                         </Card>

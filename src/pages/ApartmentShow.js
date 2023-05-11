@@ -6,7 +6,6 @@ const ApartmentShow = ({apartments}) => {
     const { id } = useParams()
 
     const currentApartment = apartments?.find((apartment) => apartment.id === +id)
-    console.log("current apartment: ", currentApartment)
     return (
         <>
             <div className="apartments-body">
