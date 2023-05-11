@@ -24,11 +24,12 @@ const ApartmentShow = ({apartments}) => {
                                     <CardSubtitle>Bathrooms: {currentApartment.bathroom} </CardSubtitle>
                                     <CardSubtitle>Pets: {currentApartment.pets}</CardSubtitle>
                                 </div>
-                                <NavLink to={`/apartmentindex`}><Button>Return to Apartment Listings</Button></NavLink>
+                            
                             </div>
                         </CardBody>
                     </Card>
                 }
+                 <NavLink to={`/apartmentindex`}><Button>Return to Apartment Listings</Button></NavLink>
             </div>
         </>
     )
