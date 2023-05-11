@@ -70,7 +70,7 @@ const App = () => {
   }
   return (
     <>
-      <Header current_user={currentUser}/>
+      <Header current_user={!currentUser}/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/apartmentindex' element={<ApartmentIndex apartments={apartments}/>} />
@@ -81,7 +81,7 @@ const App = () => {
         <Route path='/apartmentnew' element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} updateApartment={updateApartment} deleteApartment={deleteApartment} 
         />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<NotFound />} />q
       </Routes>
       <Footer />
     </>
