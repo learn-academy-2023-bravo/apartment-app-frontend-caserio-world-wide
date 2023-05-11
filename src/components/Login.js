@@ -1,5 +1,11 @@
+import React from "react"
+
+
 
 const Login = () => {
+    const handleSubmit = () => {
+        console.log("yes")
+    }
     return(
         <div> 
             <form onSubmit={handleSubmit}>

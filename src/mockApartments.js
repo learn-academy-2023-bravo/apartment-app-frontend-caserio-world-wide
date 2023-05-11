@@ -1,4 +1,4 @@
-let mockApartment = [
+let mockApartments = [
     {
         id: 1, 
         street: ' 123 key st',
@@ -43,4 +43,4 @@ let mockApartment = [
     }
 ]
 
-export default mockApartment
+export default mockApartments
