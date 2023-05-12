@@ -1,9 +1,10 @@
-
+import React from "react"
+import "../App.css"
 
 const Footer = () => {
     return(
         <>
-            <footer className="footer">2023 Caserio World Wide Inc ©️ </footer>
+            <footer className="footer" style={{ marginTop: "auto" }}>2023 Caserio World Wide Inc ©️ </footer>
         </>
     )
 }

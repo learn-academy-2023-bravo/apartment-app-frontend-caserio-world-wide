@@ -10,12 +10,17 @@ const Navigation = ({ current_user }) => {
             <Nav className="nav">
                 {current_user && (
                     <>
-                        {/* <NavLink to = '/apartmentindex'> 
+                        <NavLink to = '/home'> 
                                 <img src={ CWWlogo } alt='Caserio World Wide Logo' className='Logo'/>
-                        </NavLink> */}
+                        </NavLink>
                         <NavItem>
                             <NavLink to="/apartmentprotectedindex" className="nav-link">
                                 My Listings
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink to="/apartmentindex" className="nav-link">
+                                Current Listings
                             </NavLink>
                         </NavItem>
                         <NavItem>

@@ -143,7 +143,7 @@ const ApartmentNew = ({createApartment}) => {
                     value={newApartment.image}
                     />
                 </FormGroup>
-                <Button className="submit" onClick={handleClick}>Submit</Button>
+                <Button className="submit" style={{ backgroundColor: "#28a745" }} onClick={handleClick}>Submit</Button> 
             </Form>
         </>
     ) 

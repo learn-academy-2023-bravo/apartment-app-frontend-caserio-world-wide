@@ -30,7 +30,7 @@ const ApartmentIndex = ({ apartments }) => {
                   to={`/apartmentshow/${apartment.id}`}
                   className="nav-link"
                 >
-                  <Button className="apartment-button">More Details</Button>
+                  <Button className="apartment-button" style={{ backgroundColor: "#28a745" }}>More Details</Button>
                 </NavLink>
               </CardBody>
             </Card>

@@ -1,37 +1,329 @@
-.App {
+/* this is for the app container, main content */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* this is for the header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  height: 50px;
+}
+
+.header__input-label {
+  display: block;
+  font-size: 35px;
+  color: white;
+  margin: 0 auto;
+  margin-top: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header__input-field {
+  display: block;
+  font-size: 18px;
+  color: black;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 6px 12px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header__buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
+.header__button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+
+.header__button:hover {
+  opacity: 0.8;
+}
+
+/* code for the footer */
+.footer {
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* background image and home page */
+.home-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 80vh;
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.home-image-container {
+  width: 80%;
+  max-width: 1000px;
+}
+
+
+.home-image {
+  width: 100%;
+  height: auto;
+}
+
+
+/* navigation component css */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #1bab65;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-link:hover {
+  color: #0db6b0;
+}
+
+/* logo css */
+.Logo {
+  width: 70px;
+  height: 70px;
+  margin-left: 20px;
+}
+
+/* for screens smaller than 767 pixels */
+@media (max-width: 767px) {
+  .nav {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+   
+  .nav-link {
+    margin: 10px 0;
   }
+}
+
+/* this is for the index page */
+.apartments-body {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.index-title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+.flex-apartments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+  max-width: 300px;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apartment-button {
+  margin-top: 20px;
+}
+
+/* this is for the show portion */
+.apartments-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.apartment-card {
+  max-width: 60rem;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.apartment-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Login component styles */
+
+.login-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Login box stye  */
+
+body {
+  font-family: sans-serif;
+}
+
+.test-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.test-description {
+  margin-bottom: 20px;
+}
+
+.test-case {
+  margin-bottom: 10px;
+}
+
+.test-case-label {
+  font-weight: bold;
+}
+
+.test-case-result {
+  font-weight: bold;
+  color: green;
+}
+
+/* SignUp component styles */
+
+.signup-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* SignUp test suite styles */
+
+body {
+  font-family: sans-serif;
+}
+
+.test-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.test-description {
+  margin-bottom: 20px;
+}
+
+.test-case {
+  margin-bottom: 10px;
+}
+
+.test-case-label {
+  font-weight: bold;
+}
+
+.test-case-result {
+  font-weight: bold;
+  color: green;
+}
+
+/* ApartmentNew component styles */
+
+.new-apartment-form {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.page_heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* aparment index button styling */
+.apartment-button {
+  background-color: #28a745;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.apartment-button:hover {
+  background-color: #218838;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.1rem);
+}
+
+/* submit button styling */
+.submit {
+  background-color: #30bf37;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #218838;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.1rem);
 }
