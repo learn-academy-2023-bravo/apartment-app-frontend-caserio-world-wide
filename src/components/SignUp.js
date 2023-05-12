@@ -1,18 +1,28 @@
 import React from "react"
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({signup}) => {
 
-    // const formRef = useRef
-
-const handleSubmit = () => {
-
-        console.log("yes")
+    const formRef = useRef()
+    const navigate = useNavigate()
+   
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const formData = new FormData(formRef.current)
+        const data = Object.fromEntries(formData)
+        const userInfo = {
+            "user": { email: data.email, password: data.password }
+        }
+        signup(userInfo)
+        navigate('/')
+        e.target.reset()
     }
     return (
         <div className="signup-container">
             <h3>Sign Up</h3>
-            <Form onSubmit={handleSubmit}>
+            <Form ref={formRef} onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="email">Email</Label>
                     <Input type="email" name="email" id="email" placeholder="Enter email" />

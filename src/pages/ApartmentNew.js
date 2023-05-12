@@ -8,7 +8,6 @@ const ApartmentNew = ({createApartment}) => {
 
     const [newApartment, setNewApartment] = useState({
         user_id: '',
-        id: '',
         street: "",
         unit: "",
         city: "",
@@ -17,7 +16,8 @@ const ApartmentNew = ({createApartment}) => {
         price: "",
         bedrooms: '',
         bathroom: '',
-        pets: ""
+        pets: "",
+        image: ""
     })
 
     const handleChange = (e) => {
@@ -36,7 +36,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-price">Price</Label>
                     <Input
-                    id="apartment-price"
+                    id-apr="apartment-price"
                     name="price"
                     placeholder="Enter Price"
                     type="text"
@@ -47,7 +47,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-street">Street</Label>
                     <Input
-                    id="apartment-street"
+                    i-apr="apartment-street"
                     name="street"
                     placeholder="Enter Street"
                     type="text"
@@ -58,7 +58,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-unit">Unit</Label>
                     <Input
-                    id="apartment-unit"
+                    id-apr="apartment-unit"
                     name="unit"
                     placeholder="Enter unit number"
                     type="text"
@@ -69,7 +69,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-city">City</Label>
                     <Input
-                    id="apartment-city"
+                    id-apr="apartment-city"
                     name="city"
                     placeholder="Enter City"
                     type="text"
@@ -80,7 +80,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-state">State</Label>
                     <Input
-                    id="apartment-state"
+                    id-apr="apartment-state"
                     name="state"
                     placeholder="Enter State"
                     type="text"
@@ -91,7 +91,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-square-footage">Sq Ft.</Label>
                     <Input
-                    id="apartment-square-footage"
+                    id-apr="apartment-square-footage"
                     name="square_footage"
                     placeholder="Enter square-footage"
                     type="text"
@@ -102,7 +102,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-bedrooms">Bedrooms</Label>
                     <Input
-                    id="apartment-bedrooms"
+                    id-apr="apartment-bedrooms"
                     name="bedrooms"
                     placeholder="Enter bedrooms"
                     type="text"
@@ -111,11 +111,11 @@ const ApartmentNew = ({createApartment}) => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="apartment-bathrooms">Bathrooms</Label>
+                    <Label for="apartment-bathroom">Bathrooms</Label>
                     <Input
-                    id="apartment-bathrooms"
-                    name="bathrooms"
-                    placeholder="Enter bathrooms"
+                    id-apr="apartment-bathroom"
+                    name="bathroom"
+                    placeholder="Enter bathroom"
                     type="text"
                     onChange={handleChange}
                     value={newApartment.bathroom}
@@ -124,7 +124,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-pets">Pets</Label>
                     <Input
-                    id="apartment-pets"
+                    id-apr="apartment-pets"
                     name="pets"
                     placeholder="Are pets allowed?"
                     type="text"
@@ -135,7 +135,7 @@ const ApartmentNew = ({createApartment}) => {
                 <FormGroup>
                     <Label for="apartment-image">Image</Label>
                     <Input
-                    id="apartment-image"
+                    id-apr="apartment-image"
                     name="image"
                     placeholder="Upload image"
                     type="text"

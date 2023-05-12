@@ -1,16 +1,29 @@
 import React from "react"
 import { Form, Button } from "react-bootstrap"
+import { useRef } from "react"
+import { useNavigate } from "react-router-dom"
 
+const Login = ({login}) => {
 
-const Login = ({onSubmit}) => {
+    const formRef = useRef()
+    const navigate = useNavigate()
+   
     const handleSubmit = (e) => {
         e.preventDefault()
-        onSubmit()
+        const formData = new FormData(formRef.current)
+        const data = Object.fromEntries(formData)
+        const userInfo = {
+            "user": { email: data.email, password: data.password }
+        }
+        login(userInfo)
+        navigate('/')
+        e.target.reset()
+
     }
     return (
         <div className="login-container">
             <h3>Login</h3>
-            <Form onSubmit={handleSubmit}>
+            <Form ref={formRef} onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />

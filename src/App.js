@@ -17,13 +17,69 @@ import ApartmentProtectedIndex from './pages/ApartmentProtectedindex'
 
 
 const App = () => {
-  const [currentUser] = useState(mockUsers)
-  const [apartments, setApartments] = useState(mockApartments)
+  const [currentUser, setCurrentUser] = useState(null)
+  const [apartments, setApartments] = useState([])
   
   useEffect(() => {
     readApartment()
   }, [])
  
+  const url = "http://localhost:3000"
+
+  const login = (userInfo) => {
+    fetch(`${url}/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      method: 'POST'
+    })
+    .then(response => {
+    // store the token
+    localStorage.setItem("token", response.headers.get("Authorization"))
+    return response.json()
+  })
+  .then(payload => {
+    setCurrentUser(payload)
+  })
+  .catch(error => console.log("login errors: ", error))
+  }
+ 
+  const signup = (userInfo) => {
+    fetch(`${url}/signup`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      method: 'POST'
+    })
+    .then(response => {
+      // store the token
+    localStorage.setItem("token", response.headers.get("Authorization"))
+    return response.json()
+  })
+  .then(payload => {
+    setCurrentUser(payload)
+  })
+  .catch(error => console.log("login errors: ", error))
+  }
+
+  const logout = () => {
+    fetch(`${url}/logout`, {
+      headers: {
+        "Content-Type": 'application/json',
+        "Authorization": localStorage.getItem("token") //retrieve the token 
+      },
+      method: 'DELETE'
+    })
+    .then(payload => {
+    localStorage.removeItem("token")  // remove the token
+    setCurrentUser(null)
+  })
+  .catch(error => console.log("log out errors: ", error))
+  }
 
   const readApartment=() => {
     fetch('http://localhost:3000/apartments')
@@ -70,15 +126,16 @@ const App = () => {
     .catch(error => console.log("Delete errors:", error))
   }
   return (
+    <>
     <div className="app-container">
-      <Header current_user={currentUser}/>
+      <Header current_user={currentUser} logout={logout}/>
 
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/apartmentindex' element={<ApartmentIndex apartments={apartments}/>} />
         <Route path='/apartmentshow/:id' element={<ApartmentShow apartments={apartments}/>} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/Login' element={<Login />} />
+        <Route path='/signup' element={<SignUp signup={signup} />} />
+        <Route path='/login' element={<Login login={login} />} />
         <Route path='/apartmentprotectedindex' element={<ApartmentProtectedIndex apartments={apartments} current_user={currentUser}/>} />
         <Route path='/apartmentnew' element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} updateApartment={updateApartment} deleteApartment={deleteApartment} 
