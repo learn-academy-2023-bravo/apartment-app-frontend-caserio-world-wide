@@ -23,6 +23,7 @@ const App = () => {
   useEffect(() => {
     readApartment()
   }, [])
+ 
 
   const readApartment=() => {
     fetch('http://localhost:3000/apartments')
@@ -69,10 +70,11 @@ const App = () => {
     .catch(error => console.log("Delete errors:", error))
   }
   return (
-    <>
-      <Header current_user={!currentUser}/>
+    <div className="app-container">
+      <Header current_user={currentUser}/>
+
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/apartmentindex' element={<ApartmentIndex apartments={apartments}/>} />
         <Route path='/apartmentshow/:id' element={<ApartmentShow apartments={apartments}/>} />
         <Route path='/signup' element={<SignUp />} />
@@ -84,6 +86,7 @@ const App = () => {
         <Route path='*' element={<NotFound />} />q
       </Routes>
       <Footer />
+    </div>
     </>
   )
 }
