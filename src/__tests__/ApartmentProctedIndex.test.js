@@ -1,17 +1,17 @@
 import { screen, render } from "@testing-library/react"
-import ApartmentIndex from "../pages/ApartmentIndex"
+import ApartmentProctedIndex from "src/pages/ApartmentProtectedindex.js"
 import mockApartments from "../mockApartments"
 import { BrowserRouter } from "react-router-dom"
 
-describe("<ApartmentIndex />", () => {
+describe("<ApartmentProctedIndex />", () => {
     it("renders the list of all apartments", () => {
         render(
           <BrowserRouter>
-            <ApartmentIndex apartments={mockApartments}/>
+            <ApartmentProctedIndex apartments={mockApartments}/>
           </BrowserRouter>
         )
         
-        const element = screen.getByText("Recent Listings")
+        const element = screen.getByText("My Apartments")
         expect(element).toBeInTheDocument()
     })
 })

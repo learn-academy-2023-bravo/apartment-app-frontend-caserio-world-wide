@@ -70,9 +70,9 @@ const App = () => {
     .catch(error => console.log("Delete errors:", error))
   }
   return (
-    <>
     <div className="app-container">
       <Header current_user={currentUser}/>
+
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/apartmentindex' element={<ApartmentIndex apartments={apartments}/>} />
@@ -83,7 +83,7 @@ const App = () => {
         <Route path='/apartmentnew' element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path='/apartmentedit/:id' element={<ApartmentEdit apartments={apartments} updateApartment={updateApartment} deleteApartment={deleteApartment} 
         />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<NotFound />} />q
       </Routes>
       <Footer />
     </div>
